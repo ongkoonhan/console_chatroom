@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+enum MsgType {
+  ACK_TCP = 0;
+  MSG_TCP = 1;
+  LOGIN_TCP = 2;
+}
+
+message Msg {
+  int32 id = 1;
+  MsgType msg_type = 2;
+
+  oneof payload {
+    // AckTCP ack_tcp = 12;
+    MsgTCP msg_tcp = 13;
+    LoginTCP login_tcp = 14;
+  }
+}
+
+// message AckTCP {
+  
+// }
+
+message MsgTCP {
+  // int32 id = 1;
+  string msg = 2;
+}
+
+message LoginTCP {
+  // int32 id = 1;
+  string name = 2;
+}
+
+
